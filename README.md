@@ -3,7 +3,7 @@
 - Curicculum Vittae exported from SQLite database.
 - Code can be found in AB_CV.py file
 
-- Master Branch contains initial CV_code idea
+- Master Branch contains initial CV idea and will be updated in new Branch
 - Optimised_code Branch was created to optimise code
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
