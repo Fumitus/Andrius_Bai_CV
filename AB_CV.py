@@ -9,10 +9,14 @@ dropTablePersonal = "DROP TABLE personal_info"
 dropTableLanguage = "DROP TABLE language"
 dropTableSkills = "DROP TABLE skills"
 dropTableHobbies = "DROP TABLE hobbies"
+dropTableInterests = "DROP TABLE interests"
+dropTableCourses = "DROP TABLE courses"
 cursorObject.execute(dropTableSkills)
 cursorObject.execute(dropTablePersonal)
 cursorObject.execute(dropTableLanguage)
 cursorObject.execute(dropTableHobbies)
+cursorObject.execute(dropTableInterests)
+cursorObject.execute(dropTableCourses)
 
 
 # create new table personal_info
@@ -134,14 +138,14 @@ cursorObject.execute(insertSkill_11)
 connObject.commit()
 
 # create new table hobbies
-createTableSkills = "CREATE TABLE hobbies" \
+createTableHobbies = "CREATE TABLE hobbies" \
                       "(hobby STRING, " \
-                      "link STRING)"
-cursorObject.execute(createTableSkills)
+                      "info STRING)"
+cursorObject.execute(createTableHobbies)
 
 insertHobby_1 = "INSERT INTO hobbies VALUES" \
                    "('Windsurfing', " \
-                   "'First choice.')"
+                   "'First choice hobby.')"
 cursorObject.execute(insertHobby_1)
 
 insertHobby_2 = "INSERT INTO hobbies VALUES" \
@@ -155,8 +159,36 @@ insertHobby_3 = "INSERT INTO hobbies VALUES" \
 cursorObject.execute(insertHobby_3)
 connObject.commit()
 
-# select from DB
+# create new table interests
+createTableInterests = "CREATE TABLE interests" \
+                      "(interest STRING, " \
+                      "info STRING)"
+cursorObject.execute(createTableInterests)
 
+insertInterest_1 = "INSERT INTO interests VALUES" \
+                   "('Artificial Intelligence', " \
+                   "'Just started to study.')"
+cursorObject.execute(insertInterest_1)
+
+insertInterest_2 = "INSERT INTO interests VALUES" \
+                   "('Machine learning', " \
+                   "'Just started to study.')"
+cursorObject.execute(insertInterest_2)
+connObject.commit()
+
+# create new table courses
+createTableCourses = "CREATE TABLE courses" \
+                      "(interest STRING, " \
+                      "info STRING)"
+cursorObject.execute(createTableCourses)
+
+insertCourse_1 = "INSERT INTO courses VALUES" \
+                   "('Artificial Intelligence', " \
+                   "'Just started to study.')"
+cursorObject.execute(insertCourse_1)
+connObject.commit()
+
+# select from DB
 queryTable_personal_info = "SELECT first_name, last_name, birthday, phone, email, github, country FROM personal_info"
 queryResults_personal_info = cursorObject.execute(queryTable_personal_info)
 
@@ -170,7 +202,6 @@ queryTable_language = "SELECT * FROM language"
 queryResults_language = cursorObject.execute(queryTable_language)
 
 # Print language query results
-
 print("LanguageID, Language, Level, is_native?")
 for result in queryResults_language:
     print(result)
@@ -180,7 +211,6 @@ queryTable_skills = "SELECT * FROM skills"
 queryResults_skills = cursorObject.execute(queryTable_skills)
 
 # Print skills query results
-
 print("Skill_ID, Object, Level")
 for result in queryResults_skills:
     print(result)
@@ -190,7 +220,6 @@ queryTable_hobbies = "SELECT * FROM hobbies"
 queryResults_hobbies = cursorObject.execute(queryTable_hobbies)
 
 # Print hobbies query results
-
 print("Skill_ID, Object, Level")
 for result in queryResults_hobbies:
     print(result)
