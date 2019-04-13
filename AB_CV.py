@@ -178,7 +178,7 @@ queryResults_skills = cursorObject.execute(queryTable_skills)
 
 # Print skills query results
 
-print("Skill_ID, Object, Level")
+print("Object, Level")
 for result in queryResults_skills:
     print(result)
 
@@ -188,7 +188,7 @@ queryResults_hobbies = cursorObject.execute(queryTable_hobbies)
 
 # Print hobbies query results
 
-print("Skill_ID, Object, Level")
+print("Object, Level")
 for result in queryResults_hobbies:
     print(result)
 
