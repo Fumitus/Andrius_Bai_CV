@@ -1,6 +1,6 @@
 import sqlite3
 
-connObject = sqlite3.connect("AB_CV.db")
+connObject = sqlite3.connect(":memory:")
 cursorObject = connObject.cursor()
 
 # drop table with the same name
@@ -9,10 +9,10 @@ dropTablePersonal = "DROP TABLE personal_info"
 dropTableLanguage = "DROP TABLE language"
 dropTableSkills = "DROP TABLE skills"
 dropTableHobbies = "DROP TABLE hobbies"
-cursorObject.execute(dropTableSkills)
-cursorObject.execute(dropTablePersonal)
-cursorObject.execute(dropTableLanguage)
-cursorObject.execute(dropTableHobbies)
+# cursorObject.execute(dropTableSkills)
+# cursorObject.execute(dropTablePersonal)
+# cursorObject.execute(dropTableLanguage)
+# cursorObject.execute(dropTableHobbies)
 
 
 # create new table personal_info
@@ -38,31 +38,28 @@ insertValues = "INSERT INTO personal_info VALUES" \
 cursorObject.execute(insertValues)
 
 # create new table languages
-createTableLanguage = "CREATE TABLE language" \
-                      "(language STRING, " \
-                      "level STRING," \
-                      "native BOOLEAN)"
+createTableLanguage = """CREATE TABLE language \
+                      (language STRING,  \
+                      level STRING, \
+                      native BOOLEAN)"""
 cursorObject.execute(createTableLanguage)
 
 # insert values languages
-insertLanguage_1 = "INSERT INTO language VALUES" \
-                   "('English', " \
-                   "'B1 (CEFR)', " \
-                   "0)"
-cursorObject.execute(insertLanguage_1)
 
-insertLanguage_2 = "INSERT INTO language VALUES" \
-                   "('Russian', " \
-                   "'B1 (CEFR)', " \
-                   "0)"
-cursorObject.execute(insertLanguage_2)
 
-insertLanguage_3 = "INSERT INTO language VALUES" \
-                   "('Lithuanian', " \
-                   "'native', " \
-                   "1)"
-cursorObject.execute(insertLanguage_3)
-connObject.commit()
+def insert_language_values(*args):
+    language = args[0]
+    level = args[1]
+    native = args[2]
+    cursorObject.execute("INSERT INTO language VALUES(:language, :level, :native)",
+                         {'language': language, 'level': level, 'native': native})
+    return connObject.commit()
+
+
+insert_language_values('English', 'B1 (CEFR)', 0)
+insert_language_values('Russian', 'B1 (CEFR)', 0)
+insert_language_values('Lithuanian', 'native', 1)
+
 
 # create new table skills
 createTableSkills = "CREATE TABLE skills" \
@@ -171,7 +168,7 @@ queryResults_language = cursorObject.execute(queryTable_language)
 
 # Print language query results
 
-print("LanguageID, Language, Level, is_native?")
+print("Language, Level, is_native?")
 for result in queryResults_language:
     print(result)
 
