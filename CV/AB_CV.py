@@ -1,5 +1,5 @@
 from CV.insert import InsertValues, CreateTables
-from CV import connObject, cursorObject, DropTable
+from CV import connObject, DropTable
 from CV.export_results import ExportQuery
 
 
@@ -48,7 +48,7 @@ def main():
     InsertValues.insert_skills_values('Flask',
                                       'Can work with it independently. '
                                       'Create blog with quite good user registration functionality. '
-                                      'https://github.com/Fumitus/Baiksciai_Family_Blog/tree/Only_registered')
+                                      'https://github.com/Fumitus/Baiksciai_Family_Blog/')
 
     InsertValues.insert_skills_values('GitHub',
                                       'Can work with it independently. '
