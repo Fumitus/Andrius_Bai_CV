@@ -73,6 +73,9 @@ def main():
     InsertValues.insert_skills_values('Other Skills',
                                       'Familiar with Anaconda, Jupyter NoteBook. pandas, numpy libraries.')
 
+    InsertValues.insert_skills_values('Risk analysis',
+                                      'Have working experience with FMEA risk analysis methodology')
+
     # insert hobbies values
     InsertValues.insert_hobby_values('Windsurfing', 'First choice.')
     InsertValues.insert_hobby_values('Radio control models',
