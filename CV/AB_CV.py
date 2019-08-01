@@ -6,12 +6,16 @@ from CV.export_results import ExportQuery
 def main():
     # drop table with the same name
     DropTable("DROP TABLE IF EXISTS personal_info")
+    DropTable("DROP TABLE IF EXISTS courses")
     DropTable("DROP TABLE IF EXISTS language")
     DropTable("DROP TABLE IF EXISTS skills")
     DropTable("DROP TABLE IF EXISTS hobbies")
 
     # create new table personal_info
     CreateTables.create_table_personal_info()
+
+    # create new table courses
+    CreateTables.create_table_courses()
 
     # create new table languages
     CreateTables.create_table_language()
@@ -29,6 +33,15 @@ def main():
                                         '1983-09-21', '37061687612',
                                         'abaikstys@gmail.com', 'http://github.com/Fumitus/Andrius_Bai_CV.git',
                                         'Lithuania')
+
+    # insert values courses
+    InsertValues.insert_courses_values('Kaunas Coding School',
+                                      'https://www.vilniuscoding.lt/mokymai/python-mokymai-kaune/',
+                                      'From 2018 October to 2018 December')
+
+    InsertValues.insert_courses_values('Edureka',
+                                      'https://www.edureka.co/software-testing',
+                                      'From 2019 July')
 
     # insert values languages 'Language', 'Level', 'Is native' 0 or 1
     InsertValues.insert_language_values('English', 'B1 (CEFR)', 0)
@@ -84,6 +97,7 @@ def main():
 
     # select from DB and print results
     ExportQuery("SELECT * FROM personal_info")
+    ExportQuery("SELECT * FROM courses")
     ExportQuery("SELECT * FROM language")
     ExportQuery("SELECT * FROM skills")
     ExportQuery("SELECT * FROM hobbies")
