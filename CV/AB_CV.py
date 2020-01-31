@@ -31,7 +31,7 @@ def main():
     # 'phone', 'email', 'github repository', 'country' living place
     InsertValues.insert_personal_values('Andrius', 'Baikštis',
                                         '1983-09-21', '37061687612',
-                                        'abaikstys@gmail.com', 'http://github.com/Fumitus/Andrius_Bai_CV.git',
+                                        'abaikstys@gmail.com', 'http://github.com/Fumitus',
                                         'Lithuania')
 
     # insert values courses
@@ -56,24 +56,30 @@ def main():
                                       'At home have server running on Ubuntu 18.04.')
 
     InsertValues.insert_skills_values('Python3',
-                                      'It is my first programming language. Can work with it independently.')
+                                      'It is my first programming language. Can work with it independently.'
+                                      'Java',
+                                      'It is my second programming language. '
+                                      'Skills I have is enouth to create code for automated web testing.')
 
     InsertValues.insert_skills_values('Flask',
                                       'Can work with it independently. '
-                                      'Create blog with quite good user registration functionality. '
-                                      'https://github.com/Fumitus/Baiksciai_Family_Blog/')
+                                      'Create blog with user registration functionality. '
+                                      'https://myherokuweb.herokuapp.com/about')
 
     InsertValues.insert_skills_values('GitHub',
                                       'Can work with it independently. '
                                       'https://github.com/Fumitus')
 
     InsertValues.insert_skills_values('DataBase',
-                                      'Can work with SQLite. Familiar with PostgreSQL. '
+                                      'Can work with SQLite, MySQL, MariaDB. Familiar with PostgreSQL. '
                                       'Can use it on Linux environmental')
 
     InsertValues.insert_skills_values('PuTTY user',
                                       'pscp user. For connection using public/private key pairs.'
                                       'For file transfer using pscp with -load OPTION')
+    InsertValues.insert_skills_values('Docker_user',
+                                      'Familiar with docker. '
+                                      'Personal WEB projects prefer to deploy using docker containers.')
 
     InsertValues.insert_skills_values('Google_user',
                                       'Answers usually looking on Google search if not looking in books.')
@@ -88,6 +94,10 @@ def main():
 
     InsertValues.insert_skills_values('Risk analysis',
                                       'Have working experience with FMEA risk analysis methodology')
+
+    InsertValues.insert_skills_values('Software tester',
+                                      'With help of books created WEB to improve my software tester skills.'
+                                      ' WEB can be found https://myherokuweb.herokuapp.com/about')
 
     # insert hobbies values
     InsertValues.insert_hobby_values('Windsurfing', 'First choice.')
