@@ -31,7 +31,7 @@ def main():
     # 'phone', 'email', 'github repository', 'country' living place
     InsertValues.insert_personal_values('Andrius', 'Baikštis',
                                         '1983-09-21', '37061687612',
-                                        'abaikstys@gmail.com', 'http://github.com/Fumitus',
+                                        'abaikstys@gmail.com', 'linkedin.com/in/andrius-baikštis-5b43081a1',
                                         'Lithuania')
 
     # insert values courses
