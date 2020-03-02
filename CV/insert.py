@@ -3,7 +3,7 @@ from CV import cursorObject, connObject
 
 class InsertValues:
     """Insert data to database(DB).
-    Data to put into DB is supplied in _CV.py"""
+    Data to put into DB is supplied in AB_CV.py"""
     @staticmethod
     def insert_language_values(*args):
         language = args[0]

@@ -1,6 +1,22 @@
 from CV.insert import InsertValues, CreateTables
 from CV import connObject, DropTable
 from CV.export_results import ExportQuery
+import pdfkit
+
+
+def export_cv():
+    options = {
+
+        'margin-top': '0.751in',
+        'margin-right': '0.751in',
+        'margin-left': '0.751in',
+        'margin-bottom': '0.751in',
+        'encoding': "UTF-8",
+        'custom-header': [('Accept_Encoding', 'gzip')],
+        '--header-html': 'cv_header.html',
+        'no-outline': None
+    }
+    pdfkit.from_file('CV/Andrius_Baikstis_CV.html', 'AB_CV.pdf', options=options)
 
 
 def main():
@@ -50,36 +66,32 @@ def main():
 
     # insert values skills
     InsertValues.insert_skills_values('Linux',
-                                      'Can install system. Create and manage users. '
-                                      'Create automatic service. Automatic start/restart on condition.'
-                                      'Familiar with different access levels.'
-                                      'At home have server running on Ubuntu 18.04.')
+                                      'Can work with it independently.')
+
+    InsertValues.insert_skills_values('Windows',
+                                      'Can work with it independently.')
 
     InsertValues.insert_skills_values('Python3',
-                                      'It is my first programming language. Can work with it independently.'
-                                      'Java',
+                                      'It is my first programming language. Can work with it independently.')
+
+    InsertValues.insert_skills_values('Java',
                                       'It is my second programming language. '
-                                      'Skills I have is enouth to create code for automated web testing.')
+                                      'Enouth skills to create code for automated web testing.')
 
     InsertValues.insert_skills_values('Flask',
-                                      'Can work with it independently. '
-                                      'Create blog with user registration functionality. '
-                                      'https://myherokuweb.herokuapp.com/about')
+                                      'Can work with it independently.')
 
     InsertValues.insert_skills_values('GitHub',
                                       'Can work with it independently. '
-                                      'https://github.com/Fumitus')
+                                      'https://github.com/Fumitus?tab=repositories')
 
     InsertValues.insert_skills_values('DataBase',
-                                      'Can work with SQLite, MySQL, MariaDB. Familiar with PostgreSQL. '
-                                      'Can use it on Linux environmental')
+                                      'Can work with SQLite, MySQL, MariaDB.')
 
     InsertValues.insert_skills_values('PuTTY user',
-                                      'pscp user. For connection using public/private key pairs.'
-                                      'For file transfer using pscp with -load OPTION')
+                                      'Can work with it independently.')
     InsertValues.insert_skills_values('Docker_user',
-                                      'Familiar with docker. '
-                                      'Personal WEB projects prefer to deploy using docker containers.')
+                                      'Can work with it independently.')
 
     InsertValues.insert_skills_values('Google_user',
                                       'Answers usually looking on Google search if not looking in books.')
@@ -96,24 +108,23 @@ def main():
                                       'Have working experience with FMEA risk analysis methodology')
 
     InsertValues.insert_skills_values('Software tester',
-                                      'With help of books created WEB to improve my software tester skills.'
-                                      ' WEB can be found https://myherokuweb.herokuapp.com/about')
+                                      'Can create automated tests')
 
     # insert hobbies values
     InsertValues.insert_hobby_values('Windsurfing', 'First choice.')
     InsertValues.insert_hobby_values('Radio control models',
                                      'Like to make planes. Upgrade with different FPV and/or flight controllers.')
-    InsertValues.insert_hobby_values('Travel', 'Like to travel and can plan my working day by myself.')
+    InsertValues.insert_hobby_values('Travel', 'Like to plan our family trips by myself.')
 
     # select from DB and print results
+
     ExportQuery("SELECT * FROM personal_info")
     ExportQuery("SELECT * FROM courses")
     ExportQuery("SELECT * FROM language")
     ExportQuery("SELECT * FROM skills")
     ExportQuery("SELECT * FROM hobbies")
 
+    export_cv()
+
+
     connObject.close()
-
-
-
-

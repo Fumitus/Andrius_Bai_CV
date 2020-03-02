@@ -4,10 +4,8 @@ from CV import cursorObject
 class ExportQuery:
     def __init__(self, query):
         self.query = query
-        results = cursorObject.execute(query)
-        for result in results:
-            print(result)
+        data = cursorObject.execute(query).fetchall()
 
-
-
+        for i in data:
+            print(i)
 
