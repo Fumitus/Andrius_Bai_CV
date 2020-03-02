@@ -13,7 +13,7 @@ def export_cv():
         'margin-bottom': '0.751in',
         'encoding': "UTF-8",
         'custom-header': [('Accept_Encoding', 'gzip')],
-        '--header-html': 'cv_header.html',
+        '--header-html': 'CV/cv_header.html',
         'no-outline': None
     }
     pdfkit.from_file('CV/Andrius_Baikstis_CV.html', 'CV/AB_CV.pdf', options=options)
