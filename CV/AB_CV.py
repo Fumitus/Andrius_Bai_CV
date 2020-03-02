@@ -16,7 +16,7 @@ def export_cv():
         '--header-html': 'cv_header.html',
         'no-outline': None
     }
-    pdfkit.from_file('CV/Andrius_Baikstis_CV.html', 'AB_CV.pdf', options=options)
+    pdfkit.from_file('CV/Andrius_Baikstis_CV.html', 'CV/AB_CV.pdf', options=options)
 
 
 def main():
