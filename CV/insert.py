@@ -3,7 +3,7 @@ from CV import cursorObject, connObject
 
 class InsertValues:
     """Insert data to database(DB).
-    Data to put into DB is supplied in _CV.py"""
+    Data to put into DB is supplied in AB_CV.py"""
     @staticmethod
     def insert_language_values(*args):
         language = args[0]
@@ -47,6 +47,15 @@ class InsertValues:
                              {'hobby': hobby, 'link': link})
         return connObject.commit()
 
+    @staticmethod
+    def insert_courses_values(*args):
+        course = args[0]
+        link = args[1]
+        period = args[2]
+        cursorObject.execute("INSERT INTO courses VALUES(:course, :link, :period)",
+                             {'course': course, 'link': link, 'period': period})
+        return connObject.commit()
+
 
 class CreateTables:
     """Create tables for SQLite database"""
@@ -83,3 +92,11 @@ class CreateTables:
                             "(hobby STRING, " \
                             "link STRING)"
         cursorObject.execute(create_table_skills)
+
+    @staticmethod
+    def create_table_courses():
+        create_table_courses = "CREATE TABLE courses" \
+                            "(course STRING, " \
+                            "link STRING," \
+                            "period STRING)"
+        cursorObject.execute(create_table_courses)
