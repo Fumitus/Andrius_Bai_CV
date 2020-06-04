@@ -1,2 +1,5 @@
 .idea
 .venv
+CV.db
+__pycache__
+venv/
