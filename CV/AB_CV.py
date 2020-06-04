@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from CV.insert import InsertValues, CreateTables
 from CV import connObject, DropTable
 from CV.export_results import ExportQuery
@@ -16,7 +17,7 @@ def export_cv():
         '--header-html': 'CV/cv_header.html',
         'no-outline': None
     }
-    pdfkit.from_file('CV/Andrius_Baikstis_CV.html', 'CV/AB_CV.pdf', options=options)
+    pdfkit.from_file('CV/AB_CV.html', 'CV/AB_CV.pdf', options=options)
 
 
 def main():
@@ -81,12 +82,15 @@ def main():
     InsertValues.insert_skills_values('Flask',
                                       'Can work with it independently.')
 
+    InsertValues.insert_skills_values('Django',
+                                      'Can work with it independently.')
+
     InsertValues.insert_skills_values('GitHub',
                                       'Can work with it independently. '
                                       'https://github.com/Fumitus?tab=repositories')
 
     InsertValues.insert_skills_values('DataBase',
-                                      'Can work with SQLite, MySQL, MariaDB.')
+                                      'Can work with SQLite, MySQL, MariaDB independently.')
 
     InsertValues.insert_skills_values('PuTTY user',
                                       'Can work with it independently.')
@@ -125,6 +129,5 @@ def main():
     ExportQuery("SELECT * FROM hobbies")
 
     export_cv()
-
 
     connObject.close()
